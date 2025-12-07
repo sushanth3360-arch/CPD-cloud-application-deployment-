@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block title %}
+    Sign up
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock styles %}
+
+{% block content %}
+    <div class="container w-25 m-auto mt-5 pt-5 px-5">
+        <h2 class="text-center">Sing up</h2>
+        <div class="mb-3">
+        {{ render_form(signup_form) }}
+        </div>
+        <p>Already have an account? 
+            <a class="text-center text-decoration-none p-0 m-0"href="{{url_for('auth.login')}}">Login</a>
+        </p>
+        <p class="text-center mt-4 mb-3 text-muted">© Alberto Fleitas 2022</p>
+    </div>  
+{% endblock content %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+{% import 'macros.html' as macros %}
+
+{% block title %}
+    Welcome
+{% endblock title %}
+
+{% block content %}
+
+    {% if current_user.is_authenticated %}
+        <div class="pt-1 bg-dark">    
+            <div class="container mb-6">
+                <div class="row">
+                    <div class="col-5">
+                        <h1 class="text-light text-start fs-2 pt-1">
+                            <i class="text-light bi bi-clipboard-check"></i>
+                            To Do List
+                        </h1>
+                    </div>
+                    <div class="col-5">
+                        <h6 class="text-light text-end fs-4 pt-2">Welcome, {{username}} !</h6>
+                    </div>
+                    <div class="col-2">
+                        <h6 class="text-light text-end fs-4 pt-2"">
+                            <a class="text-reset text-decoration-none" 
+                                href="{{url_for('auth.logout')}}">
+                                Logout <i class="bi bi-box-arrow-right ms-2"></i>
+                            </a>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!--Create To Do-->
+            <div class="row my-5">
+                <h2>Create a new task</h2>
+                {{ render_form(create_todo_form, action="/todo/create") }}
+            </div>
+
+            <!--My To Do list-->
+            <div class="row my-5">
+                <h2>To Do list</h2>
+                <div>
+                    <ul class="list-group">
+                        {% for todo in todo_list %}
+                        {{macros.render_todo(todo, done_todo_form, delete_todo_form)}}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <p class="text-center mt-5 mb-3 text-muted">© Alberto Fleitas 2022</p>
+        </div>
+
+    {% else %}
+        <div class="text-center w-100 m-auto mt-3">
+            <h1>
+                <i class="text-dark bi bi-clipboard-check"></i>
+                To Do List
+            </h1>
+            <h3 class="fw-normal">
+                One app to easily manage your tasks
+            </h3>
+            <img src="{{ url_for('static', filename='images/tasks.png') }}" alt="Tasks image" style="width:600px;heigth:600px">
+            <div class="">
+                <button type="button" class="btn btn-primary" style="width:100px">
+                    <h4><a class="text-reset text-decoration-none" href="{{url_for('auth.login')}}">Login</a></h4>
+                </button>
+            </div>
+            <div class="my-2">
+                <button type="button" class="btn btn-primary" style="width:100px">
+                    <h4><a class="text-reset text-decoration-none" href="{{url_for('auth.signup')}}">Singup</a></h4>
+                </button>
+            </div>
+            <p class="mt-4 mb-3 text-muted">© Alberto Fleitas 2022</p>
+        </div>
+    {% endif %}
+
+{% endblock content %}
