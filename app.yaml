@@ -4,7 +4,9 @@ entrypoint: gunicorn -b :$PORT main:app
 
 env_variables:
   FLASK_ENV: "production"
-  # Use /tmp for SQLite in App Engine (writable directory)
+  # Tell Flask to put its instance folder in /tmp, which is writable on App Engine.
+  FLASK_INSTANCE_PATH: "/tmp/instance"
+  # For now, still using SQLite in /tmp as a fallback DB path.
   DATABASE_URL: "sqlite:////tmp/prod.db"
   # SECRET_KEY: "change-this-in-production"
 
