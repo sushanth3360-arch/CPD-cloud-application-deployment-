@@ -18,3 +18,4 @@ Werkzeug==3.0.6
 WTForms==3.1.2
 PyMySQL
 pytest
+google-cloud-secret-manager
