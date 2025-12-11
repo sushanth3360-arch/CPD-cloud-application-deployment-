@@ -1,11 +1,5 @@
 ## To-Do list Flask 📓✅
 
-This is a project for  [**Platzi's Flask course.**](https://platzi.com/cursos/flask/)
-
-<a><img src="https://user-images.githubusercontent.com/95726794/206876768-9836fdcb-afa7-4693-8f8d-051520f72191.png" width="70%" heigth="70%"></a>
-<br></br>
-<a><img src="https://user-images.githubusercontent.com/95726794/206876818-614c10b4-1b43-4cef-af0c-8abe4d74db43.png" width="70%" heigth="70%"></a>
-
 ## Table of Contents:
 - [Description](#description)
 - [Features](#features)
@@ -82,12 +76,3 @@ Contributions are always welcome!
 
 - Push to your branch: `git push origin my-feature`.
 
-## Authors
-
-- [@betofleitass](https://www.github.com/betofleitass)
-
-##  License
-
-This project is under [MIT License.](https://choosealicense.com/licenses/mit/)
-
-[Back to top ⬆️](#to-do-list-flask-)

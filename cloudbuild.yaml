@@ -1,0 +1,17 @@
+# cloudbuild.yaml
+# Basic pipeline: deploys the app to App Engine.
+# We will later extend this with extra steps (tests, migrations, etc.)
+
+steps:
+  # (Later we can add a step here to run tests or do linting)
+
+  - name: "gcr.io/cloud-builders/gcloud"
+    id: "Deploy to App Engine"
+    args:
+      - "app"
+      - "deploy"
+      - "app.yaml"
+      - "--quiet"
+
+# 15 minutes should be more than enough for this small app
+timeout: "900s"

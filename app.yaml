@@ -1,0 +1,20 @@
+runtime: python311
+
+entrypoint: gunicorn -b :$PORT main:app
+
+env_variables:
+  FLASK_ENV: "production"
+  # TEMPORARY placeholder for now; we will replace this with a real Cloud SQL URL later
+  DATABASE_URL: "sqlite:///dev.db"
+  # Optional: you can override SECRET_KEY here in production
+  # SECRET_KEY: "change-this-in-production"
+
+automatic_scaling:
+  target_cpu_utilization: 0.65
+  min_instances: 0
+  max_instances: 2
+
+handlers:
+  - url: /.*
+    script: auto
+    secure: always
