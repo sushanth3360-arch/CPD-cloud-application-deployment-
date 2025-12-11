@@ -76,9 +76,4 @@ Contributions are always welcome!
 
 - Push to your branch: `git push origin my-feature`.
 
-<<<<<<< HEAD
-=======
-
-
-[Back to top ⬆️](#to-do-list-flask-)
->>>>>>> 9c76eae2541490f4352b53c58c27cc1093d77a22
+Deployed to Google App Engine via Cloud Build.
