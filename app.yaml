@@ -16,7 +16,7 @@ env_variables:
   # For now, you can either:
   #  - Put the real password here temporarily (NOT recommended for public repo), or
   #  - Use a placeholder here and override DB_PASS in the App Engine console
-  DB_PASS: "CHANGE_ME_IN_APPENGINE"
+  DB_PASS: "P96184986Rt@123"
 
   # Optional: override secret key in production
   # SECRET_KEY: "change-this-in-production"
