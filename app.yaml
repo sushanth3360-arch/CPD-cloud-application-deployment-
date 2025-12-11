@@ -9,17 +9,10 @@ env_variables:
 
   # Cloud SQL configuration (MySQL)
   DB_USER: "todo_user"
-  DB_PASS: "P96184986Rt@123"
+  DB_PASS: "MyStrongTodoPwd123!"
   DB_NAME: "todo_db"
   INSTANCE_CONNECTION_NAME: "todo-flask-gcp:europe-west2:todo-mysql"
 
-  # ⚠️ IMPORTANT:
-  # For now, you can either:
-  #  - Put the real password here temporarily (NOT recommended for public repo), or
-  #  - Use a placeholder here and override DB_PASS in the App Engine console
-  
-  # Optional: override secret key in production
-  # SECRET_KEY: "change-this-in-production"
 
 automatic_scaling:
   target_cpu_utilization: 0.65
