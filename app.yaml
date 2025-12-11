@@ -11,7 +11,8 @@ env_variables:
   DB_USER: "todo_user"
   DB_NAME: "todo_db"
   INSTANCE_CONNECTION_NAME: "todo-flask-gcp:europe-west2:todo-mysql"
-  DB_PASS: "MyStrongTodoP123!"
+
+  DB_PASS: "MyStrongTodoPwd123!"
   DB_PASS_SECRET_NAME: "todo-db-password"
 
 automatic_scaling:
