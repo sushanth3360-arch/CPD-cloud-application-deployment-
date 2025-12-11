@@ -9,7 +9,7 @@ env_variables:
 
   # Cloud SQL configuration (MySQL)
   DB_USER: "todo_user"
-  DB_NAME: "todo_db"
+  DB_NAME: "todo_mysql"
   INSTANCE_CONNECTION_NAME: "todo-flask-gcp:europe-west2:todo-mysql"
 
   # ⚠️ IMPORTANT:
