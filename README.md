@@ -82,12 +82,6 @@ Contributions are always welcome!
 
 - Push to your branch: `git push origin my-feature`.
 
-## Authors
 
-- [@betofleitass](https://www.github.com/betofleitass)
-
-##  License
-
-This project is under [MIT License.](https://choosealicense.com/licenses/mit/)
 
 [Back to top ⬆️](#to-do-list-flask-)
