@@ -4,9 +4,8 @@ entrypoint: gunicorn -b :$PORT main:app
 
 env_variables:
   FLASK_ENV: "production"
-  # TEMPORARY placeholder for now; we will replace this with a real Cloud SQL URL later
-  DATABASE_URL: "sqlite:///dev.db"
-  # Optional: you can override SECRET_KEY here in production
+  # Use /tmp for SQLite in App Engine (writable directory)
+  DATABASE_URL: "sqlite:////tmp/prod.db"
   # SECRET_KEY: "change-this-in-production"
 
 automatic_scaling:

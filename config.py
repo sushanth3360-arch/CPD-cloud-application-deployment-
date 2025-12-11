@@ -16,7 +16,7 @@ class Config:
 
 
 class DevelopmentConfig(Config):
-    """Config for local development (SQLite)."""
+    """Config for local development (SQLite on disk)."""
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = (
         os.environ.get("DATABASE_URL")
@@ -25,10 +25,18 @@ class DevelopmentConfig(Config):
 
 
 class ProductionConfig(Config):
-    """Config for production on GCP (Cloud SQL via DATABASE_URL)."""
+    """
+    Config for production on App Engine.
+
+    By default, use DATABASE_URL if set (for Cloud SQL later).
+    If it's not set, fall back to SQLite in /tmp, which is the only writable
+    directory on App Engine Standard.
+    """
     DEBUG = False
-    # In production we EXPECT DATABASE_URL to be set
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = (
+        os.environ.get("DATABASE_URL")
+        or "sqlite:////tmp/prod.db"
+    )
 
 
 config = {
