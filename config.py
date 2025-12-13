@@ -7,14 +7,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 def _get_db_password() -> str | None:
-    """
-    Try to get DB password from Secret Manager first (production),
-    then fall back to DB_PASS env var.
-
-    This is safe for local dev & Cloud Build because:
-      - If GOOGLE_CLOUD_PROJECT or DB_PASS_SECRET_NAME are missing,
-        or Secret Manager call fails, we just return DB_PASS.
-    """
+    
     project_id = os.environ.get("GOOGLE_CLOUD_PROJECT")
     secret_name = os.environ.get("DB_PASS_SECRET_NAME")
 
@@ -32,18 +25,18 @@ def _get_db_password() -> str | None:
 
 
 class Config:
-    """Base configuration shared by all environments."""
+    
     SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-change-me")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     @staticmethod
     def init_app(app):
-        """Hook for any app-specific initialisation."""
+        
         pass
 
 
 class DevelopmentConfig(Config):
-    """Config for local development (SQLite on disk)."""
+    
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = (
         os.environ.get("DATABASE_URL")
@@ -52,17 +45,7 @@ class DevelopmentConfig(Config):
 
 
 class ProductionConfig(Config):
-    """
-    Config for production on App Engine using Cloud SQL (MySQL).
 
-    We expect:
-      - DB_USER
-      - DB_NAME
-      - INSTANCE_CONNECTION_NAME
-    For the password:
-      - prefer Secret Manager via DB_PASS_SECRET_NAME
-      - otherwise fall back to DB_PASS env var
-    """
 
     DEBUG = False
 
